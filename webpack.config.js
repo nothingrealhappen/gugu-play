@@ -7,9 +7,9 @@ const config = {
     './src/App.jsx'
   ],
   output: {
-    path: 'dist/',
+    path: 'public/js',
     filename: 'app.js',
-    publicPath: 'dist/'
+    publicPath: 'public/js'
   },
   resolve: {
     root: [
