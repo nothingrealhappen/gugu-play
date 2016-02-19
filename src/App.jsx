@@ -1,11 +1,29 @@
 import React, { PropTypes } from 'react';
+import ReactDOM from 'react-dom';
+import qwest from 'qwest';
 
-const app = React.createClass({
+require('app.styl');
+
+const App = React.createClass({
+  getInitialState: function() {
+    return {
+      lock: false
+    };
+  },
+  handleClick() {
+    if(this.state.lock) return;
+    this.setState({ lock: true });
+    qwest.get('/print').then(() => {
+      this.setState({ lock: false });
+    });
+  },
   render () {
     return (
-      <div>Hello, world!</div>
+      <div className="play-button" onClick={this.handleClick}>
+        PLAY
+      </div>
     );
   }
 });
 
-export default app;
+ReactDOM.render(<App />, document.querySelector('#app'));

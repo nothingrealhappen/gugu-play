@@ -1,0 +1,45 @@
+body, html
+  position relative
+  animation colorLoop 10s linear
+  animation-iteration-count infinite
+
+@keyframes colorLoop {
+  saturation = 85%
+  lightness = 68%
+  0%, 100% {
+    background-color: hsl(0, saturation, lightness)
+  }
+  50% {
+    background-color: hsl(180, saturation, lightness)
+  }
+}
+
+@keyframes borderRadius {
+  0%, 100% {
+    border-radius 5% 2% 8% 6%
+  }
+  50% {
+    border-radius 40% 45% 45% 55%
+  }
+  60% {
+    border-radius 40% 45% 35% 50%
+  }
+}
+
+.play-button
+  width 30vw
+  height 30vw
+  position absolute
+  left 50vw
+  top 50vh
+  color #222
+  font-size 8vw
+  text-align center
+  line-height 30vw
+  margin-left -15vw
+  margin-top -15vw
+  background-color rgba(255, 255, 255, .6)
+  animation borderRadius 8s
+  animation-iteration-count infinite
+  box-shadow 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+  font-family 'Bradley Hand'

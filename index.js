@@ -7,8 +7,9 @@ import CONFIG from './config';
 const app = express();
 
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jsx');
-app.engine('jsx', require('express-react-views').createEngine());
+app.set('view engine', 'jade');
+
+app.use(express.static('public'));
 
 gugu(CONFIG, data => {
   app.listen(8090, data => console.log('server running...'));
@@ -18,12 +19,14 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.post('/print', (req, res) => {
+app.get('/print', (req, res) => {
   res.json({status: 'ok'});
+  printQuestion();
 });
 
-// gugu.printpaper([
-//     'Hello',
-//     'World!'
-// ], function(data) {
-// });
+function printQuestion() {
+  gugu.printpaper([
+    'ok, send text!'
+  ], function(data) {
+  });
+}

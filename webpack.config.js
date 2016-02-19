@@ -19,7 +19,8 @@ const config = {
   },
   module: {
     loaders: [
-      { test: /\.js|\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+      { test: /\.js|\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' }
     ],
   },
   devServer: {
