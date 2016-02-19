@@ -1,10 +1,20 @@
 import http from 'http';
+import readline from 'readline';
 import gugu from 'node-gugu';
 import express from 'express';
 
 import CONFIG from './config';
 
 const app = express();
+let list = [];
+
+const lineReader = require('readline').createInterface({
+  input: require('fs').createReadStream('./list.txt')
+});
+
+lineReader.on('line', function (line) {
+  list.push(line);
+});
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -26,7 +36,7 @@ app.get('/print', (req, res) => {
 
 function printQuestion() {
   gugu.printpaper([
-    'ok, send text!'
+    list[Math.floor(Math.random() * list.length)]
   ], function(data) {
   });
 }
