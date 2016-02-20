@@ -43,3 +43,20 @@ body, html
   animation-iteration-count infinite
   box-shadow 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
   font-family 'Bradley Hand'
+
+.message
+  position absolute
+  color #4E4E4E
+  left 50vw
+  transform translateX(-50%)
+  background rgba(255,255,255,.5)
+  display inline-block
+  padding 2px 5px
+  border-radius 5px
+  top 70vh
+  opacity 0
+  transition all .3s
+  text-align center
+
+  &.active
+    opacity 1

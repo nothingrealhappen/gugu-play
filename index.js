@@ -30,13 +30,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/print', (req, res) => {
-  res.json({status: 'ok'});
-  printQuestion();
+  const str = printQuestion();
+  res.json({status: 'ok', message: str});
 });
 
 function printQuestion() {
+  const str = list[Math.floor(Math.random() * list.length)]
   gugu.printpaper([
-    list[Math.floor(Math.random() * list.length)]
+    str
   ], function(data) {
   });
+  return str
 }
