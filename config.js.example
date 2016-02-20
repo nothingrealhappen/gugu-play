@@ -1,0 +1,5 @@
+module.exports = {
+  ak: 'your dev ak',
+  memoid: 'double click printer button',
+  userid: 'view it on memobird app'
+};
