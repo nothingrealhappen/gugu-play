@@ -2,6 +2,7 @@ import http from 'http';
 import readline from 'readline';
 import gugu from 'node-gugu';
 import express from 'express';
+import Gugu from 'gugu-node';
 
 import CONFIG from './config';
 
@@ -21,9 +22,12 @@ app.set('view engine', 'jade');
 
 app.use(express.static('public'));
 
-gugu(CONFIG, data => {
-  app.listen(8090, data => console.log('server running...'));
-});
+const GU = new Gugu(CONFIG);
+
+GU.setup()
+  .then(() => {
+    app.listen(8090, data => console.log('server running at http://localhost:8090...'));
+  });
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -36,9 +40,6 @@ app.get('/print', (req, res) => {
 
 function printQuestion() {
   const str = list[Math.floor(Math.random() * list.length)]
-  gugu.printpaper([
-    str
-  ], function(data) {
-  });
+  GU.print(str);
   return str
 }

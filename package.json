@@ -18,8 +18,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.4",
+    "gugu-node": "^1.0.2",
     "jade": "^1.11.0",
-    "node-gugu": "^1.0.2",
     "qwest": "^4.1.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7"
